@@ -1,2 +1,4 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/Darkon96/frontend-project-12/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Darkon96/frontend-project-12/actions)
+
+[Deploy app](https://frontend-project-12-odes.onrender.com)
