@@ -1,6 +1,6 @@
-import ErrorPage from "./NotFoundPage.jsx";
-import Login from "./LoginPage.jsx";
-import SignUpPage from "./SignUpPage.jsx"
+import ErrorPage from "./NotFound/NotFoundPage.jsx";
+import Login from "./Login/LoginPage.jsx";
+import SignUpPage from "./SignUp/SignUpPage.jsx"
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
@@ -16,7 +16,7 @@ function App() {
       </BrowserRouter>
     </div>
     );
-  }
+}
 
 export default App;
 

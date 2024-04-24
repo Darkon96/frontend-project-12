@@ -10,10 +10,10 @@ import axios from 'axios';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 
-import { useAuth } from '../hooks/index.jsx';
-import { routes, apiRoutes } from '../routes/routes.js';
+import { useAuth } from '../../hooks/index.jsx';
+import { routes, apiRoutes } from '../../routes/routes.js';
 
-import image from '../assets/avatar_1.jpg';
+import image from '../../assets/avatar_1.jpg';
 
 const schema = yup.object().shape({
   username: yup
