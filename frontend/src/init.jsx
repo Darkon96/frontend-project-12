@@ -1,18 +1,30 @@
-import { Provider } from 'react-redux';
+import { io } from 'socket.io-client';
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import { Provider as RollbalProvider } from '@rollbar/react';
+import filterWords from 'leo-profanity';
+
+import { initReactI18next } from 'react-i18next';
+import LanguageDetector from 'i18next-browser-languagedetector';
 import i18next from 'i18next';
-import { I18nextProvider, initReactI18next } from 'react-i18next';
-import { Provider as RollbarProvider, ErrorBoundary } from '@rollbar/react';
+import App from './slices/App';
 
-import resources from './locales/index.js';
+import { actions as channelsActions } from './slices/channelsSlice';
+import { actions as messageActions } from './slices/messageSlice';
+import slice from './index';
+import SocketProvider from '../context/ApiProvider';
 
-import store from './slices/index.js';
+import resources from '../locales/index';
 
-import AuthProvider from './providers/AuthProvider.jsx';
-import ApiProvider from './providers/ApiProvider.jsx';
+const Init = () => {
+  i18next
+    .use(initReactI18next)
+    .use(LanguageDetector)
+    .init({
+      fallbackLng: 'ru',
+      resources,
+    });
 
-import App from './components/App.jsx';
-
-const init = async (socket) => {
   const rollbarConfig = {
     accessToken: process.env.REACT_APP_ROLLBAR_TOKEN,
     payload: {
@@ -22,31 +34,38 @@ const init = async (socket) => {
     captureUnhandledRejections: true,
   };
 
-  const i18n = i18next.createInstance();
+  filterWords.add(filterWords.getDictionary('en'));
+  filterWords.add(filterWords.getDictionary('ru'));
 
-  await i18n
-    .use(initReactI18next)
-    .init({
-      resources,
-      lng: 'ru',
-      fallbackLng: 'ru',
-    });
+  const socket = io();
+
+  socket.on('newChannel', (payload) => {
+    slice.dispatch(channelsActions.addChannel(payload));
+  });
+
+  socket.on('removeChannel', (payload) => {
+    slice.dispatch(channelsActions.removeChannel(payload));
+  });
+
+  socket.on('renameChannel', (payload) => {
+    slice.dispatch(channelsActions.renameChannel(payload));
+  });
+
+  socket.on('newMessage', (payload) => {
+    slice.dispatch(messageActions.addMessage(payload));
+  });
 
   return (
-    <RollbarProvider config={rollbarConfig}>
-      <ErrorBoundary>
-        <I18nextProvider i18n={i18n}>
-          <Provider store={store}>
-            <AuthProvider>
-              <ApiProvider socket={socket}>
-                <App />
-              </ApiProvider>
-            </AuthProvider>
-          </Provider>
-        </I18nextProvider>
-      </ErrorBoundary>
-    </RollbarProvider>
+    <React.StrictMode>
+      <BrowserRouter>
+        <RollbalProvider config={rollbarConfig}>
+          <SocketProvider socket={socket}>
+            <App />
+          </SocketProvider>
+        </RollbalProvider>
+      </BrowserRouter>
+    </React.StrictMode>
   );
 };
 
-export default init;
+export default Init;

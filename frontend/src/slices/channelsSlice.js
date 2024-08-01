@@ -1,51 +1,46 @@
 /* eslint-disable no-param-reassign */
 
-import { createSlice, createEntityAdapter } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
-import fetchData from './fetchData.js';
-
-const channelsAdapter = createEntityAdapter();
-
-const initialState = channelsAdapter.getInitialState({
-  currentChannelId: null,
-});
+const initialState = {
+  channels: [],
+  channelId: 1,
+  // newChannels: [],
+};
 
 const channelsSlice = createSlice({
   name: 'channels',
   initialState,
   reducers: {
-    addChannels: channelsAdapter.addMany,
-    addChannel: channelsAdapter.addOne,
-    renameChannel: channelsAdapter.updateOne,
-    removeChannel: (state, { payload }) => {
-      if (state.currentChannelId === payload) {
-        const newCurrentChannelId = state.ids[0];
-        state.currentChannelId = newCurrentChannelId;
-      }
-      channelsAdapter.removeOne(state, payload);
+    setChannels(state, { payload }) {
+      state.channels = payload;
     },
-    changeChannel: (state, { payload }) => {
-      state.currentChannelId = payload;
+    setChannelId(state, { payload }) {
+      state.channelId = payload;
     },
-  },
-  extraReducers: (builder) => {
-    builder
-      .addCase(fetchData.fulfilled, (state, { payload }) => {
-        channelsAdapter.setAll(state, payload.channels);
-        state.currentChannelId = payload.currentChannelId;
+    addChannel(state, { payload }) {
+      state.channels.push(payload);
+    },
+    removeChannel(state, { payload }) {
+      const update = state.channels.filter((channel) => channel.id !== payload.id);
+      state.channelId = state.channelId === payload.id ? 1 : state.channelId;
+      state.channels = update;
+    },
+    renameChannel(state, { payload }) {
+      const update = state.channels.map((i) => {
+        if (i.id === payload.id) {
+          i = payload;
+          return i;
+        }
+        return i;
       });
+      state.channels = update;
+    },
+    moveToChannel(state, { payload }) {
+      state.channelId = payload;
+    },
   },
 });
 
 export const { actions } = channelsSlice;
-const selectors = channelsAdapter.getSelectors((state) => state.channels);
-export const customSelectors = {
-  allChannels: selectors.selectAll,
-  channelsNames: (state) => selectors.selectAll(state).map(({ name }) => name),
-  currentChannel: (state) => {
-    const { currentChannelId } = state.channels;
-
-    return selectors.selectById(state, currentChannelId);
-  },
-};
 export default channelsSlice.reducer;
