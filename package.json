@@ -20,6 +20,15 @@
   },
   "homepage": "https://github.com/Darkon96/frontend-project-12#readme",
   "dependencies": {
-    "@hexlet/chat-server": "^2.0.3"
+    "@fastify/jwt": "^8.0.1",
+    "@fastify/static": "^7.0.4",
+    "@hexlet/chat-server": "^2.0.3",
+    "@rollbar/react": "^0.12.0-beta",
+    "express": "^4.19.2",
+    "formik": "^2.4.6",
+    "lodash": "^4.17.21",
+    "rollbar": "^2.26.4",
+    "socket.io": "^4.7.5",
+    "socket.io-client": "^4.7.5"
   }
 }
