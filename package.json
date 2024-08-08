@@ -20,8 +20,6 @@
   },
   "homepage": "https://github.com/Darkon96/frontend-project-12#readme",
   "dependencies": {
-    "@fastify/jwt": "^8.0.1",
-    "@fastify/static": "^7.0.4",
     "@hexlet/chat-server": "^2.0.3",
     "@rollbar/react": "^0.12.0-beta",
     "express": "^4.19.2",
