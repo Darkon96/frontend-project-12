@@ -1,26 +1,28 @@
+import { useTranslation } from 'react-i18next';
 import err from '../assets/ErrorImg.svg';
-const ErrorPage = () => {
+
+const Page404 = () => {
+  const { t } = useTranslation();
   return (
     <div className="h-100" id="err404">
       <div className="d-flex flex-column h-100">
         <nav className="shadow-sm navbar navbar-expand-lg navbar-light bg-white">
           <div className="container">
-            <a className="navbar-brand" href="/">{'Hexlet Chat'}</a>
+            <a className="navbar-brand" href="/">{t('logo')}</a>
           </div>
         </nav>
         <div className="text-center">
           <img
             className="img-fluid h-25"
-            style={{ minHeight: '30vh', minWidth: '50vh' }}
             src={err}
             alt="Page not found"
           />
           <h1 className="h4 text-muted">
-            {'Страница не найдена'}
+            {t('404.error')}
           </h1>
           <p className="text-muted">
-            {'Но вы можете перейти '}
-            <a href="/">{'на главную страницу'}</a>
+            {t('404.message')}
+            <a href="/">{t('404.main')}</a>
           </p>
         </div>
       </div>
@@ -28,4 +30,4 @@ const ErrorPage = () => {
   );
 };
 
-export default ErrorPage;
+export default Page404;
