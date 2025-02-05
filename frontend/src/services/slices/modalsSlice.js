@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
 
@@ -22,3 +23,29 @@ const modalsSlice = createSlice({
 export const { showModal, hideModal } = modalsSlice.actions;
 
 export default modalsSlice.reducer;
+=======
+/* eslint-disable no-param-reassign */
+import { createSlice } from '@reduxjs/toolkit';
+
+const initialState = {
+  modalInfo: { type: null, item: null },
+};
+
+const modalsSlice = createSlice({
+  name: 'modals',
+  initialState,
+  reducers: {
+    showModal: (state, action) => {
+      const { type, item } = action.payload;
+      state.modalInfo = { type, item };
+    },
+    hideModal: (state) => {
+      state.modalInfo = { type: null, item: null };
+    },
+  },
+});
+
+export const { showModal, hideModal } = modalsSlice.actions;
+
+export default modalsSlice.reducer;
+>>>>>>> parent of 6543d03 (del)

@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+=======
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+>>>>>>> parent of 6543d03 (del)
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -21,6 +26,7 @@ export default defineConfig({
   },
   optimizeDeps: {
     esbuildOptions: {
+<<<<<<< HEAD
       target: 'esnext'
     }
   },
@@ -28,3 +34,12 @@ export default defineConfig({
     target: 'esnext'
   },
 })
+=======
+      target: 'esnext',
+    },
+  },
+  build: {
+    target: 'esnext',
+  },
+});
+>>>>>>> parent of 6543d03 (del)
