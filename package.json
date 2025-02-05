@@ -17,8 +17,7 @@
   },
   "homepage": "https://github.com/Darkon96/frontend-project-12#readme",
   "dependencies": {
-    "@hexlet/chat-server": "^2.0.4",
-    "vite": "^5.4.11"
+    "@hexlet/chat-server": "^2.0.4"
   },
   "devDependencies": {
     "@eslint/create-config": "^1.0.0",
