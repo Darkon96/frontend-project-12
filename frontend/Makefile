@@ -2,7 +2,7 @@ build:
 	npm run build
 
 install:
-	npm ci
+	npm install
 
 start:
 	npm start
