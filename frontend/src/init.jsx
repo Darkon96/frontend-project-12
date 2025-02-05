@@ -9,10 +9,6 @@ import resources from './locales/ru.js';
 import App from './App.jsx';
 import store from './services/index.js';
 
-const rollbarConfig = {
-  accessToken: process.env.REACT_APP_ROLLBAR_TOKEN,
-  environment: 'production',
-};
 
 const init = async () => {
   const i18nextInstance = i18next.createInstance();
@@ -30,13 +26,11 @@ const init = async () => {
   const socket = io();
 
   return (
-    <Provider config={rollbarConfig}>
       <StoreProvider store={store}>
         <ErrorBoundary>
           <App socket={socket} />
         </ErrorBoundary>
       </StoreProvider>
-    </Provider>
   );
 };
 
