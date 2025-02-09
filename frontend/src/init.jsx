@@ -9,6 +9,10 @@ import resources from './locales/ru.js';
 import App from './App.jsx';
 import store from './services/index.js';
 
+const rollbarConfig = {
+  accessToken: '<ClientAccessToken>',
+  environment: 'testenv',
+};
 
 const init = async () => {
   const i18nextInstance = i18next.createInstance();
@@ -25,12 +29,20 @@ const init = async () => {
 
   const socket = io();
 
+  function TestError() {
+    const a = null;
+    return a.hello();
+  }
+
   return (
+    <Provider config={rollbarConfig}>
       <StoreProvider store={store}>
         <ErrorBoundary>
+          <TestError />
           <App socket={socket} />
         </ErrorBoundary>
       </StoreProvider>
+    </Provider>
   );
 };
 
