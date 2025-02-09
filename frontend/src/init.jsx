@@ -10,8 +10,8 @@ import App from './App.jsx';
 import store from './services/index.js';
 
 const rollbarConfig = {
-  accessToken: '<ClientAccessToken>',
-  environment: 'testenv',
+  accessToken: process.env.REACT_APP_ROLLBAR_TOKEN,
+  environment: 'production',
 };
 
 const init = async () => {
