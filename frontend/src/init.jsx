@@ -39,7 +39,6 @@ const init = async () => {
       <StoreProvider store={store}>
         <ErrorBoundary>
           <TestError />
-          <App socket={socket} />
         </ErrorBoundary>
       </StoreProvider>
     </Provider>
