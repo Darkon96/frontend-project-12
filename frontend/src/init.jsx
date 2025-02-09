@@ -11,7 +11,7 @@ import store from './services/index.js';
 
 const rollbarConfig = {
   accessToken: process.env.REACT_APP_ROLLBAR_TOKEN,
-  environment: 'production',
+  environment: 'testenv',
 };
 
 function TestError() {
