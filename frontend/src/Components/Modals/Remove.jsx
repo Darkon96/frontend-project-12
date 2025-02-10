@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { hideModal } from '../../services/slices/modalsSlice.js';
 import { useDeleteChannelMutation } from '../../services/api.js';
 
-const Remove = (props) => {
+function Remove(props) {
   const { modalInfo } = useSelector((state) => state.modalsReducer);
   const dispatch = useDispatch();
   const { t } = useTranslation();
@@ -44,6 +44,6 @@ const Remove = (props) => {
       </Modal.Footer>
     </Modal>
   );
-};
+}
 
 export default Remove;
