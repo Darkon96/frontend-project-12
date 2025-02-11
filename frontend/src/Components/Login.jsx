@@ -2,7 +2,7 @@ import { useFormik } from 'formik';
 import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import {
-  Form, Button, FloatingLabel, Card
+  Form, Button, FloatingLabel, Card,
 } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
