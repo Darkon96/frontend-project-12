@@ -9,7 +9,7 @@ import { setActiveChannel } from '../../services/slices/channelsSlice.js';
 import { hideModal } from '../../services/slices/modalsSlice.js';
 import { useAddChannelMutation } from '../../services/api.js';
 
-function Add(props) {
+const Add = (props) => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const { notify } = props;

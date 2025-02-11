@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 import { hideModal } from '../../services/slices/modalsSlice.js';
 import { useRenameChannelMutation } from '../../services/api.js';
 
-function Rename(props) {
+const Rename = (props) => {
   const { modalInfo } = useSelector((state) => state.modalsReducer);
   const dispatch = useDispatch();
   const { t } = useTranslation();
