@@ -87,6 +87,6 @@ const Add = (props) => {
       </Form>
     </Modal>
   );
-}
+};
 
 export default Add;

@@ -86,6 +86,6 @@ const Rename = (props) => {
       </form>
     </Modal>
   );
-}
+};
 
 export default Rename;

@@ -44,6 +44,6 @@ const Remove = (props) => {
       </Modal.Footer>
     </Modal>
   );
-}
+};
 
 export default Remove;
