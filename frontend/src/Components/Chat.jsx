@@ -96,8 +96,8 @@ const PageChat = ({ channelsReducer, messagesReducer, socket }) => {
   const newTextMessage = (e) => {
     dispatch(setCurrentText(e.target.value));
   };
-
-  const sendMessage = async (e) => {
+ // тут надо убрать асинхронную функцию (наверное)
+  const sendMessage = (e) => {
     e.preventDefault();
     const filtedMessage = filter.clean(currentText);
     const newMessage = {
@@ -105,7 +105,7 @@ const PageChat = ({ channelsReducer, messagesReducer, socket }) => {
       channelId: channelId.toString(),
       username,
     };
-    await addMessage(newMessage)
+    addMessage(newMessage)
       .unwrap()
       .catch(() => {
         notify(`${t('toasts.error')}`, true, true)();
