@@ -105,7 +105,7 @@ const PageChat = ({ channelsReducer, messagesReducer, socket }) => {
       channelId: channelId.toString(),
       username,
     };
-  addMessage(newMessage)
+    addMessage(newMessage)
       .unwrap()
       .catch(() => {
         notify(`${t('toasts.error')}`, true, true)();
