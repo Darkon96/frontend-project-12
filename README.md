@@ -3,7 +3,7 @@
 [![Actions Status](https://github.com/Darkon96/frontend-project-12/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Darkon96/frontend-project-12/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/9f2a15e7a370c3add7bd/maintainability)](https://codeclimate.com/github/Darkon96/frontend-project-12/maintainability)
 ## Описание
-Аналог Slack-чата (очень упрощенная версия)
+Аналог Slack-чата (очень упрощенная версия). Он позволяет обмениваться моментальными сообщениями. Создавать каналы по интересам и в дальнейшем редактировать их.
 ## Установка
 ```sh
 make install
