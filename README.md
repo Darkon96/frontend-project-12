@@ -24,5 +24,5 @@ make install
 ```
 ## Демонстрация:
 
-[Демо](https://frontend-project-12-96mw.onrender.com)
+<https://frontend-project-12-96mw.onrender.com>
 
