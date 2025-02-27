@@ -33,8 +33,8 @@ const init = async () => {
     <Provider config={rollbarConfig}>
       <StoreProvider store={store}>
         <ErrorBoundary>
-          <Error>
-          </Error>
+          <Errors>
+          </Errors>
           <App socket={socket} />
         </ErrorBoundary>
       </StoreProvider>
