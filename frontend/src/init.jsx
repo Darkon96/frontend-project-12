@@ -14,10 +14,6 @@ const rollbarConfig = {
   environment: 'production',
 };
 
-const Error = () => {
- return error;
-};
-
 const init = async () => {
   const i18nextInstance = i18next.createInstance();
   await i18nextInstance
@@ -37,8 +33,6 @@ const init = async () => {
     <Provider config={rollbarConfig}>
       <StoreProvider store={store}>
         <ErrorBoundary>
-          <Error>
-          </Error>
           <App socket={socket} />
         </ErrorBoundary>
       </StoreProvider>
