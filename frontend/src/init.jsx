@@ -11,7 +11,7 @@ import store from './services/index.js';
 
 const rollbarConfig = {
   accessToken: process.env.REACT_APP_ROLLBAR_TOKEN,
-  environment: 'production',
+  environment: 'testenv',
 };
 
 const init = async () => {
@@ -33,6 +33,8 @@ const init = async () => {
     <Provider config={rollbarConfig}>
       <StoreProvider store={store}>
         <ErrorBoundary>
+          <Error>
+          </Error>
           <App socket={socket} />
         </ErrorBoundary>
       </StoreProvider>
