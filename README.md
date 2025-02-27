@@ -25,5 +25,5 @@ make install
 ## Демонстрация:
 
 
-<https://frontend-project-12-96mw.onrender.com/login>
+<https://frontend-project-12-96mw.onrender.com>
 
