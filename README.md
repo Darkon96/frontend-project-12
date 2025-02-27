@@ -23,6 +23,6 @@
 make install
 ```
 ## Демонстрация:
-```sh
+
 [Демо](https://frontend-project-12-96mw.onrender.com)
-```
+
