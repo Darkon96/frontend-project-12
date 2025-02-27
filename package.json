@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/Darkon96/frontend-project-12#readme",
   "dependencies": {
-    "@hexlet/chat-server": "^2.0.4"
+    "@hexlet/chat-server": "^2.0.4",
+    "@types/leo-profanity": "^1.5.4"
   }
 }
