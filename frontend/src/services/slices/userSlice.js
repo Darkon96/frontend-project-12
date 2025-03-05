@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import routes from '../../routes';
 
 const initialState = {
+  isAuthenticated: false,
   token: (localStorage.getItem('userId')) ? JSON.parse(localStorage.getItem('userId')).token : '',
   username: (localStorage.getItem('userId')) ? JSON.parse(localStorage.getItem('userId')).username : '',
 };
@@ -16,11 +17,13 @@ const userSlice = createSlice({
       const { token, username } = action.payload;
       state.token = token;
       state.username = username;
+      state.isAuthenticated = true;
     },
     logOut: (state) => {
       localStorage.removeItem('userId');
       window.location.href = routes.pages.loginPage();
       state.token = '';
+      state.isAuthenticated = false;
     },
   },
 });
