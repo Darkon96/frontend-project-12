@@ -40,7 +40,7 @@ const Add = (props) => {
         .unwrap()
         .then((payload) => {
           if (!result.isError && modalInfo) {
-            notify(`${t('toasts.add')}`, true)();
+            notify(`${t('toasts.add')}`, 'success')();
             dispatch(setActiveChannel(payload.id));
           }
           resetForm();
@@ -48,7 +48,7 @@ const Add = (props) => {
         })
         .catch((err) => {
           if (err.status === 'FETCH_ERROR') {
-            notify(`${t('toasts.error')}`, true, true)();
+            notify(`${t('toasts.error')}`, 'error')();
           }
         });
     },

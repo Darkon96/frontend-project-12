@@ -39,14 +39,14 @@ const Rename = (props) => {
         .unwrap()
         .then(() => {
           if (!result.isError && modalInfo) {
-            notify(`${t('toasts.rename')}`, true)();
+            notify(`${t('toasts.rename')}`,'success')();
           }
           resetForm();
           dispatch(hideModal());
         })
         .catch((err) => {
           if (err.status === 'FETCH_ERROR') {
-            notify(`${t('toasts.error')}`, true, true)();
+            notify(`${t('toasts.error')}`, 'error')();
           }
         });
     },

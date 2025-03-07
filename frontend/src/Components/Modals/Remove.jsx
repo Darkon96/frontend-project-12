@@ -16,12 +16,12 @@ const Remove = (props) => {
     await deleteChannel(id)
       .unwrap()
       .then(() => {
-        notify(`${t('toasts.remove')}`, true)();
+        notify(`${t('toasts.remove')}`, 'success')();
         dispatch(hideModal());
       })
       .catch((err) => {
         if (err.status === 'FETCH_ERROR') {
-          notify(`${t('toasts.error')}`, true, true)();
+          notify(`${t('toasts.error')}`, 'error')();
         }
       });
   };

@@ -42,13 +42,20 @@ const PageChat = ({ channelsReducer, messagesReducer, socket }) => {
       />
     );
   };
-  const notify = (message, move, err = false) => () => {
-    if (move) {
-      return ((err) ? toast.error(message) : toast.success(message));
+  const showToast = (message, statusModal = 'error') => {
+    switch(statusModal) {
+      case 'success':
+          return toast.success(message);
+      case 'warning':
+          return toast.warn(message);
+      case 'info':
+          return toast.info(message);
+      default:
+          return toast.error(message);
     }
-    return null;
   };
-
+  const notify = (message, statusModal) => () => showToast(message, statusModal);
+  
   useEffect(() => {
     if (!isLoadChannels && !isLoadMesseges) {
       dispatch(addStartMessages(startMessages));
@@ -108,7 +115,7 @@ const PageChat = ({ channelsReducer, messagesReducer, socket }) => {
     addMessage(newMessage)
       .unwrap()
       .catch(() => {
-        notify(`${t('toasts.error')}`, true, true)();
+        notify(`${t('toasts.error')}`, 'error')();
       });
     dispatch(setCurrentText(''));
   };
