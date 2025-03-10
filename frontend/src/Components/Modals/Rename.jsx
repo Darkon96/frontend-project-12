@@ -39,7 +39,7 @@ const Rename = (props) => {
         .unwrap()
         .then(() => {
           if (!result.isError && modalInfo) {
-            notify(`${t('toasts.rename')}`,'success')();
+            notify(`${t('toasts.rename')}`, 'success')();
           }
           resetForm();
           dispatch(hideModal());

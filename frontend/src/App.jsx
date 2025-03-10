@@ -23,19 +23,19 @@ const PrivateRoute = ({ children }) => {
 
 const App = ({ socket }) => (
   <BrowserRouter>
-      <Routes>
-        <Route
-          path={routes.pages.chatPage()}
-          element={(
-            <PrivateRoute>
-              <PageChat socket={socket} />
-            </PrivateRoute>
-          )}
-        />
-        <Route path={routes.pages.loginPage()} element={<PageLogin />} />
-        <Route path={routes.pages.page404()} element={<Page404 />} />
-        <Route path={routes.pages.signUpPage()} element={<SignUp />} />
-      </Routes>
+    <Routes>
+      <Route
+        path={routes.pages.chatPage()}
+        element={(
+          <PrivateRoute>
+            <PageChat socket={socket} />
+          </PrivateRoute>
+        )}
+      />
+      <Route path={routes.pages.loginPage()} element={<PageLogin />} />
+      <Route path={routes.pages.page404()} element={<Page404 />} />
+      <Route path={routes.pages.signUpPage()} element={<SignUp />} />
+    </Routes>
   </BrowserRouter>
 );
 

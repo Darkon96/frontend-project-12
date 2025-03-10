@@ -43,7 +43,7 @@ const PageChat = ({ channelsReducer, messagesReducer, socket }) => {
     );
   };
   const showToast = (message, statusModal = 'error') => {
-    switch(statusModal) {
+    switch (statusModal) {
       case 'success':
         return toast.success(message);
       case 'warning':
@@ -55,7 +55,7 @@ const PageChat = ({ channelsReducer, messagesReducer, socket }) => {
     }
   };
   const notify = (message, statusModal) => () => showToast(message, statusModal);
-  
+
   useEffect(() => {
     if (!isLoadChannels && !isLoadMesseges) {
       dispatch(addStartMessages(startMessages));
