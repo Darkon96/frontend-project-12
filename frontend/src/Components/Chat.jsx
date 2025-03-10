@@ -45,13 +45,13 @@ const PageChat = ({ channelsReducer, messagesReducer, socket }) => {
   const showToast = (message, statusModal = 'error') => {
     switch(statusModal) {
       case 'success':
-          return toast.success(message);
+        return toast.success(message);
       case 'warning':
-          return toast.warn(message);
+        return toast.warn(message);
       case 'info':
-          return toast.info(message);
+        return toast.info(message);
       default:
-          return toast.error(message);
+        return toast.error(message);
     }
   };
   const notify = (message, statusModal) => () => showToast(message, statusModal);
